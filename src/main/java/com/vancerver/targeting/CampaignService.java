@@ -34,4 +34,18 @@ public class CampaignService {
         }
         return campaigns;
     }
+
+    /**
+     * Does an infinite loop asking the user to provide a space separated list of segment numbers
+     *
+     * @param campaigns List of Campaigns loaded into the system
+     */
+    private static void startUserInputLoop(List<Campaign> campaigns){
+        Scanner sc= new Scanner(System.in);    //System.in is a standard input stream
+
+        // For now, just keep looping user input prompt forever
+        while (true)
+            LOG.info(CampaignService.determineBestCampaignForUserSegments(sc.nextLine().split(" "), campaigns));
+    }
+
 }
