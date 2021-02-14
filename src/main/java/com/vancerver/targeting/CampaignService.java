@@ -48,4 +48,20 @@ public class CampaignService {
             LOG.info(CampaignService.determineBestCampaignForUserSegments(sc.nextLine().split(" "), campaigns));
     }
 
+    /**
+     * Determines the relevance of a campaign for a specific user.
+     *
+     * @param campaign Campaign object to calculate on
+     * @param userSegments String array of segment numbers for the user.
+     * @return int representing the relevance of this campaign for the user.
+     */
+    private static int calculateCampaignRelevance(Campaign campaign, String userSegments[]){
+        int relevance = 0;
+        for(int segment : campaign.getSegments()){
+            for(String userSegment : userSegments){
+                if(segment == Integer.parseInt(userSegment)) ++relevance;
+            }
+        }
+        return relevance;
+    }
 }
