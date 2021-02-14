@@ -11,4 +11,8 @@ public class TargetingApplication implements CommandLineRunner {
         SpringApplication.run(TargetingApplication.class, args);
     }
 
+    @Override
+    public void run(String... args) throws Exception {
+        CampaignService.startApplication(args);
+    }
 }
