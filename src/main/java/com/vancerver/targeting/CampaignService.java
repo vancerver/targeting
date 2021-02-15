@@ -80,6 +80,8 @@ public class CampaignService {
      */
     private static int calculateCampaignRelevance(Campaign campaign, String userSegments[]){
         int relevance = 0;
+
+        // For every segment in the provided campaign, test if there is a match for this segment in the userSegments
         for(int segment : campaign.getSegments()){
             for(String userSegment : userSegments){
                 if(segment == Integer.parseInt(userSegment)) ++relevance;
